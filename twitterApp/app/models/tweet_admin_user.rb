@@ -1,0 +1,2 @@
+class TweetAdminUser < ApplicationRecord
+end
