@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/hatt0519/negapoji
+  revision: 508d84a936a5ccacc880695fe7f42f429065c9ac
+  specs:
+    negapoji (0.1.0)
+      natto (~> 1.1, >= 1.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -171,6 +178,7 @@ DEPENDENCIES
   mecab
   mysql2 (>= 0.3.18, < 0.5)
   natto
+  negapoji!
   puma (~> 3.0)
   rails (~> 5.0.3)
   rcodetools

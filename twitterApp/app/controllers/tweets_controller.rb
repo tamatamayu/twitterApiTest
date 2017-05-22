@@ -1,4 +1,6 @@
 class TweetsController < ApplicationController
+  require 'natto'
+
   before_action :set_tweet, only: [:show, :update, :destroy]
 
   # GET /tweets
@@ -36,6 +38,21 @@ class TweetsController < ApplicationController
   # DELETE /tweets/1
   def destroy
     @tweet.destroy
+  end
+
+  # 解析
+  def analysis
+    allTweetList = Tweet.all
+    resultList = Array.new
+    result = {}
+    nt = Natto::MeCab.new
+    allTweetList.each do |tweet|
+      resultList.push(tweet.tweet_text + " : " + Negapoji.judge(tweet.tweet_text))
+        # nt.parse(tweet.tweet_text) do |obj|
+        #   puts obj
+        # end
+    end
+    render json: result.store("result",resultList)
   end
 
   private
